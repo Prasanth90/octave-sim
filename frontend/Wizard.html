@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Octave- Design View</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" >
+	<link rel="stylesheet" href="joint.min.css" type="text/css"></link>
+	<link rel="stylesheet" href="dummy.css" 	type="text/css"></link>
+	<script type="text/javascript" src="joint.min.js" ></script>
+	<script type="text/javascript" src="joint.shapes.devs.min.js"> </script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+	<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+			 body{margin:50px;}
+		  #accordion .glyphicon { margin-right:10px; }
+		  .panel-collapse>.list-group .list-group-item:first-child {border-top-right-radius: 0;border-top-left-radius: 0;}
+		  .panel-collapse>.list-group .list-group-item {border-width: 1px 0;}
+		  .panel-collapse>.list-group {margin-bottom: 0;}
+		  .panel-collapse .list-group-item {border-radius:0;}
+
+		  .panel-collapse .list-group .list-group {margin: 0;margin-top: 10px;}
+		  .panel-collapse .list-group-item li.list-group-item {margin: 0 -15px;border-top: 1px solid #ddd !important;border-bottom: 0;padding-left: 30px;}
+		  .panel-collapse .list-group-item li.list-group-item:last-child {padding-bottom: 0;}
+
+		  .panel-collapse div.list-group div.list-group{margin: 0;}
+		  .panel-collapse div.list-group .list-group a.list-group-item {border-top: 1px solid #ddd !important;border-bottom: 0;padding-left: 30px;}
+		  .panel-collapse .list-group-item li.list-group-item {border-top: 1px solid #DDD !important;}
+	</style>
+</head>
+<body>
+<div>
+      <div class="row">
+        <div class="col-sm-3 col-md-3 dragme">
+          <div class="panel-group" id="accordion">
+		      <div class="panel panel-info">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" data-parent="#accordion" href="#gen"><span class="glyphicon glyphicon-signal">
+						</span>Signal Generation</a>
+					</h4>
+				  </div>
+				  <div id="gen" class="panel-collapse collapse in">
+					<div class="list-group">
+					   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>Sine </a>
+					   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>Step </a>
+					   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>Saw tooth </a>
+					</div>
+				  </div>
+            </div>	
+          </div>
+        </div>
+        <div class="col-sm-9 col-md-9 drophere"  id="dropit">
+          <div class="panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title">Design wizard</h3>
+            </div>
+            <div class="panel-body">
+              <p>Drag and drop the tools</p>
+              	<div id="myholder"> </div>
+            </div>
+          </div>
+        </div>
+      </div>
+</div>
+
+<script type="text/javascript" src="ViewController.js"></script>
+</body>
+</html>

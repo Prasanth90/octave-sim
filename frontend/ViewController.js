@@ -48,7 +48,7 @@ graph.on('change:source change:target', function(link) {
 					var newPosY = ui.offset.top - $(this).offset().top;
 					console.log(newPosX);
 					console.log(newPosY);
-					AddBlock(graph,'Sine','array','logic',newPosX,newPosY);
+					AddBlock(graph,'Sine','array','logic',newPosX,newPosY-50);
 											}
 });
 

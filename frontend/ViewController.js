@@ -81,8 +81,26 @@ function AddBlock(graph, name, inputType,outputType)
 graph.addCell(model);
 }
 
+ function DragDrop() {
+		console.log("loaded");
+		$(".dragme").draggable({ helper: "clone",stack: ".drophere", cursor: "move"});
+			
+		
+		$( ".drophere" ).droppable({
+				activeClass: "activeDroppable",
+				hoverClass: "hoverDroppable",
+				accept: ":not(.ui-sortable-helper)",
+		drop: function( event, ui ) {
+			console.log("dropped");
+									}
+});
 
+		
+}
+
+DragDrop();
 var mygraph = InitWorkspace();
 AddBlock(mygraph,'Sine','array','logic');
 AddBlock(mygraph,'Sine1','logic','logic');
 AddBlock(mygraph,'Sine2','array','logic');
+

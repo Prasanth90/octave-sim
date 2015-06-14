@@ -20,6 +20,7 @@
 <!--[if lte IE 8]>
 		<script type="text/javascript" src="http://explorercanvas.googlecode.com/svn/trunk/excanvas.js"></script>
 	<![endif]-->
+	<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="css/bootstrap.min.css" />
 <link rel="stylesheet" type="text/css" href="css/isotope.css" media="screen" />
 <link rel="stylesheet" href="js/fancybox/jquery.fancybox.css" type="text/css" media="screen" />
@@ -49,6 +50,11 @@
       .panel-collapse div.list-group .list-group a.list-group-item {border-top: 1px solid #ddd !important;border-bottom: 0;padding-left: 30px;}
       .panel-collapse .list-group-item li.list-group-item {border-top: 1px solid #DDD !important;}
     </style>
+	
+
+	<script type="text/javascript" src="joint.min.js" ></script>
+	<script type="text/javascript" src="joint.shapes.devs.min.js"> </script>
+	    
 </head>
 
 <body>
@@ -100,106 +106,86 @@
       <div class="row">
         <div class="col-sm-2 col-md-2">
           <div class="panel-group" id="accordion">
-            <div class="panel panel-default">
-              <div class="panel-heading">
-                <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-folder-close">
-                    </span>Signal Generators</a>
-                </h4>
-              </div>
-              <div id="collapseOne" class="panel-collapse collapse in">
-                <ul class="list-group">
-                  <li class="list-group-item"><span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://fb.com/moinakbarali">Articles</a>
-                    <ul class="list-group">
-                      <li class="list-group-item"><span class="glyphicon glyphicon-pencil text-primary"></span><a href="http://fb.com/moinakbarali">Articles</a></li>
-
-                      <li class="list-group-item"><span class="glyphicon glyphicon-flash text-success"></span><a href="http://fb.com/moinakbarali">News</a></li>
-
-                      <li class="list-group-item"><span class="glyphicon glyphicon-file text-info"></span><a href="http://fb.com/moinakbarali">Newsletters</a></li>
-
-                      <li class="list-group-item"> 
-						<span class="glyphicon glyphicon-comment text-success"></span>
-						<a href="http://fb.com/moinakbarali">Comments</a>
-						<span class="badge">4</span>
-					  </li>
-
-                    </ul>
-                  </li>
-
-                  <li class="list-group-item"><span class="glyphicon glyphicon-flash text-success"></span><a href="http://fb.com/moinakbarali">News</a></li>
-
-                  <li class="list-group-item"><span class="glyphicon glyphicon-file text-info"></span><a href="http://fb.com/moinakbarali">Newsletters</a></li>
-
-                  <li class="list-group-item"> <span class="glyphicon glyphicon-comment text-success"></span><a href="http://fb.com/moinakbarali">Comments</a><span class="badge">42</span></li>
-
-                </ul>
-              </div>
+		      <div class="panel panel-info">
+				  <div class="panel-heading">
+					<h4 class="panel-title">
+					  <a data-toggle="collapse" data-parent="#accordion" href="#gen"><span class="glyphicon glyphicon-signal">
+						</span>Signal Generation</a>
+					</h4>
+				  </div>
+				  <div id="gen" class="panel-collapse collapse in">
+					<div class="list-group">
+					   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>Sine </a>
+					   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>Step </a>
+					   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>Saw tooth </a>
+					</div>
+				  </div>
             </div>
-            <div class="panel panel-default">
+            <div class="panel panel-info">
               <div class="panel-heading">
                 <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-file">
-                    </span>DSP</a>
+                  <a data-toggle="collapse" data-parent="#accordion" href="#process"><span class="glyphicon glyphicon-cog">
+                    </span>Signal Processing</a>
                 </h4>
               </div>
-              <div id="collapseFour" class="panel-collapse collapse">
+              <div id="process" class="panel-collapse collapse in">
                 <div class="list-group">
-                  <a href="#" class="list-group-item">
-                    Cras justo odio
-                  </a>
-                  <div class="list-group">
-                    <a href="#" class="list-group-item">
-                      Cras justo odio
-                    </a>
-                    <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                    <a href="#" class="list-group-item">Morbi leo risus</a>
-                    <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                    <a href="#" class="list-group-item">Vestibulum at eros</a>
-                  </div>
-                  <a href="#" class="list-group-item">Dapibus ac facilisis in</a>
-                  <a href="#" class="list-group-item">Morbi leo risus</a>
-                  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
-                  <a href="#" class="list-group-item">Vestibulum at eros</a>
+				   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>FFT</a>
+				   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>DFT</a>
                 </div>
               </div>
             </div>
-            <div class="panel panel-default">
+			<div class="panel panel-info">
               <div class="panel-heading">
                 <h4 class="panel-title">
-                  <a data-toggle="collapse" data-parent="#accordion" href="#collapseFive"><span class="glyphicon glyphicon-heart">
-                    </span>Logic</a>
+                  <a data-toggle="collapse" data-parent="#accordion" href="#condition"><span class="glyphicon glyphicon-question-sign">
+                    </span>Conditional Blocks</a>
                 </h4>
               </div>
-              <div id="collapseFive" class="panel-collapse collapse">
+              <div id="condition" class="panel-collapse collapse in">
                 <div class="list-group">
-                  <a href="#" class="list-group-item">
-                    <h4 class="list-group-item-heading">List group item heading</h4>
-                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                  </a>
-                </div>
-                <div class="list-group">
-                  <a href="#" class="list-group-item">
-                    <h4 class="list-group-item-heading">List group item heading</h4>
-                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                  </a>
-                </div>
-                <div class="list-group">
-                  <a href="#" class="list-group-item">
-                    <h4 class="list-group-item-heading">List group item heading</h4>
-                    <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam eget risus varius blandit.</p>
-                  </a>
+				   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>IF-Else</a>
                 </div>
               </div>
+            </div>
+			<div class="panel panel-info">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#loop"><span class="glyphicon glyphicon-random">
+                    </span>Loops</a>
+                </h4>
+              </div>
+              <div id="loop" class="panel-collapse collapse in">
+                <div class="list-group">
+				   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>For</a>
+				   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>While </a>
+                </div>
+              </div>
+			  
+            </div>
+			<div class="panel panel-info">
+              <div class="panel-heading">
+                <h4 class="panel-title">
+                  <a data-toggle="collapse" data-parent="#accordion" href="#other"><span class="glyphicon glyphicon-list">
+                    </span>Other</a>
+                </h4>
+              </div>
+              <div id="other" class="panel-collapse collapse in">
+                <div class="list-group">
+				   <a href="#" class="list-group-item dragme"><span class="glyphicon glyphicon-flash text-success"></span>Noise</a>
+                </div>
+              </div>
+			  
             </div>
           </div>
         </div>
-        <div class="col-sm-8 col-md-8">
-          <div class="panel panel-default">
+        <div class="col-sm-8 col-md-8 drophere"  id="dropit">
+          <div class="panel panel-info">
             <div class="panel-heading">
               <h3 class="panel-title">Dashboard</h3>
             </div>
             <div class="panel-body">
-              <p>Admin Dashboard Accordion List Group Menu</p>
+              <p>Drag the items from the toolbox!!!</p>
 			  <div id="myholder"> </div>
             </div>
           </div>
@@ -350,7 +336,9 @@
   </div>
 </section>
 <a href="#top" class="topHome"><i class="fa fa-chevron-up fa-2x"></i></a> 
-
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="ViewController.js"></script>
 <!--[if lte IE 8]><script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script><![endif]--> 
 <script src="js/modernizr-latest.js"></script> 
 <script src="js/jquery-1.8.2.min.js" type="text/javascript"></script> 
@@ -365,6 +353,6 @@
 <script src="flexslider/jquery.flexslider.js"></script>
 <script src="js/custom.js" type="text/javascript"></script> 
 <script src="js/owl-carousel/owl.carousel.js"></script>
-<script type="text/javascript" src="ViewController.js"></script>
+
 </body>
 </html>

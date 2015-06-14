@@ -3,7 +3,7 @@ function InitWorkspace()
 var graph = new joint.dia.Graph;
 var paper = new joint.dia.Paper({
     el: $('#myholder'),
-    width: 1950, height: 400, gridSize: 5,
+    width: 1210, height: 400, gridSize: 5,
     model: graph,
     defaultLink: GetLink(),
     validateConnection: function(cellViewS, magnetS, cellViewT, magnetT, end, linkView) {
@@ -22,6 +22,35 @@ graph.on('change:source change:target', function(link) {
         console.log("Link has been changed")
     }
 })
+
+		console.log("loaded");
+		$(".dragme").draggable({ helper: "clone",stack: ".drophere", cursor: "move"});
+			
+		
+		$( ".drophere" ).droppable({
+				activeClass: "activeDroppable",
+				hoverClass: "hoverDroppable",
+				accept: ":not(.ui-sortable-helper)",
+				
+				stop: function(event, ui) {
+					// Show dropped position.
+					var Stoppos = $(this).position();
+					console.log(Stoppos.left);
+					console.log(Stoppos.top);
+					console.log("asda");
+											},
+											
+				drop: function( event, ui ) {
+					console.log("dropped");
+					 // position of the draggable minus position of the droppable
+        // relative to the document
+					var newPosX = ui.offset.left - $(this).offset().left;
+					var newPosY = ui.offset.top - $(this).offset().top;
+					console.log(newPosX);
+					console.log(newPosY);
+					AddBlock(graph,'Sine','array','logic',newPosX,newPosY);
+											}
+});
 
 return graph
 }
@@ -64,10 +93,10 @@ function showAddress(address)
     alert("This is address :"+address);
 };
 
-function AddBlock(graph, name, inputType,outputType)
+function AddBlock(graph, name, inputType,outputType,xpos, ypos)
 {
  var model = new joint.shapes.devs.Model({
-    position: { x: 50, y: 50 },
+    position: { x: xpos, y: ypos },
     size: { width: 90, height: 90 },
     inPorts: ['in1','in2'],
     outPorts: ['out'],
@@ -81,26 +110,7 @@ function AddBlock(graph, name, inputType,outputType)
 graph.addCell(model);
 }
 
- function DragDrop() {
-		console.log("loaded");
-		$(".dragme").draggable({ helper: "clone",stack: ".drophere", cursor: "move"});
-			
-		
-		$( ".drophere" ).droppable({
-				activeClass: "activeDroppable",
-				hoverClass: "hoverDroppable",
-				accept: ":not(.ui-sortable-helper)",
-		drop: function( event, ui ) {
-			console.log("dropped");
-									}
-});
 
-		
-}
-
-DragDrop();
 var mygraph = InitWorkspace();
-AddBlock(mygraph,'Sine','array','logic');
-AddBlock(mygraph,'Sine1','logic','logic');
-AddBlock(mygraph,'Sine2','array','logic');
+
 
